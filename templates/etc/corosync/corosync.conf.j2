@@ -12,6 +12,8 @@ totem {
 		mcastport: {{ corosync_mcastport }}
 		ttl: 1
 	}
+
+}
 {% if corosync_unicast_mode %}
 	nodelist{
 {% for host in groups[pacemaker_cluster_group] %}
@@ -23,8 +25,6 @@ totem {
 {% endfor %}
 	}
 {% endif %}
-}
-
 logging {
 	fileline: off
 	to_stderr: no
